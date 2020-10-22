@@ -149,7 +149,7 @@ class FollowTheGap(object):
         	direc_msg.drive.speed = 0.4*pontoAdiante  
 
         if pontoAdiante < 0.2:
-        	direc_msg.drive.speed = 1
+        	direc_msg.drive.speed = 3
         return direc_msg
 
     def behaviourControll(self, listaScan):
@@ -216,13 +216,13 @@ class FollowTheGap(object):
 
 			acao_de_controle = Kp*erro_atual+Kd*(erro_atual - erro_anterior)
 
-			obstaculo_adiante = min(listaScan[88*3:92*3]);
+			obstaculo_adiante = min(listaScan[89*3:91*3]);
 
 			Kerro = -30
 			
-			if(Kerro*abs(erro_atual) + 7 > 3):
+			if(Kerro*abs(erro_atual) + 9 > 3):
 
-				if(obstaculo_adiante > 9):
+				if(obstaculo_adiante > 7):
 					wall_avoid_msg.drive.speed = Kerro*abs(erro_atual) + 9
 
 				else:
