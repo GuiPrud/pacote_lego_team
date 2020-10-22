@@ -112,7 +112,7 @@ class FollowTheGap(object):
     def GapFollow(self, listaScan):
         
         minDist = 4.0
-        GPArray=corrigeGap(listaScan, minDist, 8)
+        GPArray=corrigeGap(listaScan, minDist, 17)
         direc_msg = AckermannDriveStamped()
         direc_msg.drive.steering_angle = 0
 
@@ -148,8 +148,8 @@ class FollowTheGap(object):
 	else:
         	direc_msg.drive.speed = 0.4*pontoAdiante  
 
-        #if pontoAdiante < 0.2:
-        #	direc_msg.drive.speed = 0.5
+        if pontoAdiante < 0.2:
+        	direc_msg.drive.speed = 1
         return direc_msg
 
     def behaviourControll(self, listaScan):
