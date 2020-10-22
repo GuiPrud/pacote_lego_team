@@ -216,12 +216,19 @@ class FollowTheGap(object):
 
 			acao_de_controle = Kp*erro_atual+Kd*(erro_atual - erro_anterior)
 
-			if(-30*abs(erro_atual) + 7 > 3):
-				if(listaScan[90*3] > 9):
-					wall_avoid_msg.drive.speed = -30*abs(erro_atual) + 9
+			obstaculo_adiante = min(listaScan[87*3:93]);
+
+			Kerro = -30
+			
+			if(Kerro*abs(erro_atual) + 7 > 3):
+
+				if(obstaculo_adiante > 9):
+					wall_avoid_msg.drive.speed = Kerro*abs(erro_atual) + 9
+
 				else:
-					if(-30*abs(erro_atual) + 9/listaScan[90*3] > 3):
-						wall_avoid_msg.drive.speed = -30*abs(erro_atual) + 9/listaScan[90*3]
+					if(Kerro*abs(erro_atual) + 9/obstaculo_adiante > 3):
+						wall_avoid_msg.drive.speed = Kerro*abs(erro_atual) + 9/listaScan[90*3]
+
 					else:
 						wall_avoid_msg.drive.speed = 3
 			else:
