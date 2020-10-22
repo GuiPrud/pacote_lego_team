@@ -208,8 +208,8 @@ class FollowTheGap(object):
 			AC = 0.5
 			CD = AB + AC*math.sin(alpha)
 
-			Kp = 0.4
-			Kd = 0.2
+			Kp = 0.2
+			Kd = 0.1
 
 			erro_atual = set_point - CD
 			global erro_anterior
