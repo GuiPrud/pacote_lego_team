@@ -143,13 +143,13 @@ class FollowTheGap(object):
         	direc_msg.drive.speed = 1*pontoAdiante
 
 	elif(pontoAdiante < 10):
-        	direc_msg.drive.speed = 0.5*pontoAdiante  
+        	direc_msg.drive.speed = 0.8*pontoAdiante  
 
 	else:
-        	direc_msg.drive.speed = 0.35*pontoAdiante  
+        	direc_msg.drive.speed = 0.4*pontoAdiante  
 
-        if pontoAdiante < 0.2:
-        	direc_msg.drive.speed = 0.5
+        #if pontoAdiante < 0.2:
+        #	direc_msg.drive.speed = 0.5
         return direc_msg
 
     def behaviourControll(self, listaScan):
@@ -180,7 +180,7 @@ class FollowTheGap(object):
             if dist_min_existe == True:
                 mux_switch_count = 0
 
-            if (mux_switch_count > 20 and dist_min_existe == False):
+            if (mux_switch_count > 10 and dist_min_existe == False):
                 estado = 0
                 mux_switch_count = 0
                 
@@ -208,15 +208,15 @@ class FollowTheGap(object):
 			AC = 0.5
 			CD = AB + AC*math.sin(alpha)
 
-			Kp = 0.2
-			Kd = 0.1
+			Kp = 0.1
+			Kd = 0.05
 
 			erro_atual = set_point - CD
 			global erro_anterior
 
 			acao_de_controle = Kp*erro_atual+Kd*(erro_atual - erro_anterior)
 
-			obstaculo_adiante = min(listaScan[87*3:93*3]);
+			obstaculo_adiante = min(listaScan[88*3:92*3]);
 
 			Kerro = -30
 			
