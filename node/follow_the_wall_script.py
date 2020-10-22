@@ -216,7 +216,7 @@ class FollowTheGap(object):
 
 			acao_de_controle = Kp*erro_atual+Kd*(erro_atual - erro_anterior)
 
-			obstaculo_adiante = min(listaScan[87*3:93]);
+			obstaculo_adiante = min(listaScan[87*3:93*3]);
 
 			Kerro = -30
 			
