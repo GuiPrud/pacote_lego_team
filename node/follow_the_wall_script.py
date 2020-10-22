@@ -91,7 +91,6 @@ class FollowTheGap(object):
         #self.sub = rospy.Subscriber('/scan', LaserScan, callback)
 	self.sub = rospy.Subscriber('/lego_team_id/scan', LaserScan, callback)
 
-        
         rate = rospy.Rate(40)
 
         while not rospy.is_shutdown():
@@ -99,6 +98,8 @@ class FollowTheGap(object):
 		global estado
 
 		self.behaviourControll(gapArray)
+
+		rospy.loginfo(str(estado))
 
 		if estado == 1: 
 			direc_msg = self.GapFollow(gapArray)
@@ -112,7 +113,7 @@ class FollowTheGap(object):
     def GapFollow(self, listaScan):
         
         minDist = 4.0
-        GPArray=corrigeGap(listaScan, minDist, 17)
+        GPArray=corrigeGap(listaScan, minDist, 20)
         direc_msg = AckermannDriveStamped()
         direc_msg.drive.steering_angle = 0
 
