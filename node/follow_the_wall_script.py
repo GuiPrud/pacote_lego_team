@@ -221,14 +221,14 @@ class FollowTheGap(object):
 
 			Kerro = -30
 			
-			if(Kerro*abs(erro_atual) + 9 > 3):
+			if(Kerro*abs(erro_atual) + 10 > 3):
 
 				if(obstaculo_adiante > 7):
-					wall_avoid_msg.drive.speed = Kerro*abs(erro_atual) + 9
+					wall_avoid_msg.drive.speed = Kerro*abs(erro_atual) + 10
 
 				else:
-					if(Kerro*abs(erro_atual) + 9/obstaculo_adiante > 3):
-						wall_avoid_msg.drive.speed = Kerro*abs(erro_atual) + 9/listaScan[90*3]
+					if(Kerro*abs(erro_atual) + 10/obstaculo_adiante > 3):
+						wall_avoid_msg.drive.speed = Kerro*abs(erro_atual) + 10/listaScan[90*3]
 
 					else:
 						wall_avoid_msg.drive.speed = 3
