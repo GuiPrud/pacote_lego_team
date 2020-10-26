@@ -45,7 +45,7 @@ def callback(msg):
     
     tempList=list(msg.ranges[rangeMin:rangeMax])    
 
-    rospy.loginfo(str(estado))
+    #rospy.loginfo(str(estado))
     # atualiza o gapArray com a leitura atual
     gapArray=tempList[:]
 
