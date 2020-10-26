@@ -43,9 +43,9 @@ def callback(msg):
     rangeMax=int(270*1080/360)
     rangeMin=int(90*1080/360)
     
-    tempList=list(msg.ranges[rangeMin:rangeMax])
+    tempList=list(msg.ranges[rangeMin:rangeMax])    
 
-
+    rospy.loginfo(str(estado))
     # atualiza o gapArray com a leitura atual
     gapArray=tempList[:]
 
@@ -98,8 +98,6 @@ class FollowTheGap(object):
 		global estado
 
 		self.behaviourControll(gapArray)
-
-		rospy.loginfo(str(estado))
 
 		if estado == 1: 
 			direc_msg = self.GapFollow(gapArray)
@@ -195,7 +193,8 @@ class FollowTheGap(object):
 		distancia_esquerda = listaScan[len(listaScan)-1]
 
 		theta = 45
-		set_point = (distancia_direita + distancia_esquerda)/2
+		#set_point = (distancia_direita + distancia_esquerda)/2
+		set_point = 2
 
 		a = listaScan[3*145]
 		b = listaScan[len(listaScan)-1]
