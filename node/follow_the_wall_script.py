@@ -148,7 +148,7 @@ class FollowTheGap(object):
         	direc_msg.drive.speed = 0.4*pontoAdiante  
 
         if pontoAdiante < 0.2:
-        	direc_msg.drive.speed = 3
+        	direc_msg.drive.speed = 2.5
         return direc_msg
 
     def behaviourControll(self, listaScan):
