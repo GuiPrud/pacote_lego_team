@@ -193,8 +193,8 @@ class FollowTheGap(object):
 		distancia_esquerda = listaScan[len(listaScan)-1]
 
 		theta = 45
-		#set_point = (distancia_direita + distancia_esquerda)/2
-		set_point = 2
+		set_point = (distancia_direita + distancia_esquerda)/2
+		
 
 		a = listaScan[3*145]
 		b = listaScan[len(listaScan)-1]
