@@ -99,6 +99,8 @@ class FollowTheGap(object):
 
 		self.behaviourControll(gapArray)
 
+		rospy.loginfo(str(estado))
+
 		if estado == 1: 
 			direc_msg = self.GapFollow(gapArray)
 		else:
@@ -148,7 +150,7 @@ class FollowTheGap(object):
         	direc_msg.drive.speed = 0.4*pontoAdiante  
 
         if pontoAdiante < 0.2:
-        	direc_msg.drive.speed = 2.5
+        	direc_msg.drive.speed = 3
         return direc_msg
 
     def behaviourControll(self, listaScan):
